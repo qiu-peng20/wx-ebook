@@ -1,13 +1,13 @@
 <template>
 	<div class="home-book">
 		<div class="home-book-wrapper">
-			<div class="book-title">{{title}}</div>
+			<div class="book-title" v-if="showTitle">{{title}}</div>
 			<div class="book-content" >
 				<div class="book-content-row" v-for="(item,index) in bookData" :key="index">
 					<div class="book-content-col" v-for="(book,bookIndex) in item" :key="bookIndex" :style="{ flex: '0 0 ' + (100 / col) + '%' }">
-						<div class="book-wrapper" 
+						<div class="book-wrapper"
 						:style="{flexDirection : mode === HOME_BOOK_MODE.COL?'column':'row'}"
-						@click="onBookClick"
+						@click="onBookClick(book)"
 						v-if="mode === HOME_BOOK_MODE.COL || mode === HOME_BOOK_MODE.ROW">
 							<imgView :src="book.cover"></imgView>
 							<div class="book-title-wrapper book-title-col" v-if="mode === HOME_BOOK_MODE.COL">
@@ -108,7 +108,7 @@
 					const _bookDataRow = []
 					let _row = 0
 					while(_row<this.row){
-						//0 2 
+						//0 2
 						//2 4
 						_bookDataRow.push(_bookData.slice(_row*this.col,_row*this.col + this.col))
 						_row++
@@ -118,16 +118,16 @@
 					return []
 				}
 			},
-			
+
 		},
 		methods:{
 			onMoreClick(){
 				//点击更多
 				this.$emit('onMoreClick')
 			},
-			onBookClick(){
+			onBookClick(book){
 				//点击图书
-				this.$emit('onBookClick')
+				this.$emit('onBookClick',book)
 			}
 		}
 	}
@@ -222,7 +222,7 @@
 									z-index: 100;
 									border-radius: 0 0 10px 0;
 									overflow: hidden;
-									
+
 								}
 								.imgView-two-wrapper{
 									position: absolute;

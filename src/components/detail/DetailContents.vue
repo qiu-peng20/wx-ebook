@@ -3,7 +3,7 @@
     <div class="detail-contents-title">目录</div>
     <div
       class="detail-contents"
-      v-for="(item, index) in contents"
+      v-for="(item, index) in content"
       :key="index"
       @click="() => readBook(item.href)"
     >
@@ -22,11 +22,16 @@
     props: {
       contents: Array
     },
+    computed:{
+      content(){
+        return this.contents
+      }
+    },
     methods: {
       readBook(nav) {
         this.$emit('readBook', nav)
       }
-    }
+    },
   }
 </script>
 

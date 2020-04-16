@@ -24,6 +24,30 @@ export function getBookContents(params){
 	return get(`${API_URL}/book/contents`,params)
 }
 
+export function getBookShelf(params){
+  return get(`${API_URL}/book/shelf/get`,params)
+}
+
+export function getBookShelfSave(params){
+  return get(`${API_URL}/book/shelf/save`,{
+    shelf:JSON.stringify(params)
+  })
+}
+
+export function getBookShelfRemoveSave(params){
+  return get(`${API_URL}/book/shelf/remove`,{
+    shelf:JSON.stringify(params)
+  })
+}
+
+export function getUserDay(params){
+  return get(`${API_URL}/user/day` ,params)
+}
+
+export function getCategory(){
+  return get(`${API_URL}/book/category/list/v2`)
+}
+
 export function getOpenId(code){
 	return get(`${API_URL}/openId/get`,
 	{

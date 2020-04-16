@@ -15,7 +15,7 @@
 						<imgView :src="item.cover"></imgView>
 					</div>
 					
-					<div class="shelf-wrapper">
+					<div class="shelf-wrapper" @click="goToShelf">
 						<div class="shelf">书架</div>
 						<van-icon class="arrow" name="arrow"></van-icon>
 					</div>
@@ -68,7 +68,9 @@
 				})
 			},
 			goToShelf(){
-				
+				this.$router.push({
+          path:'/pages/shelf/main'
+        })
 			},
 			onBookClick(item){
 				this.$emit('onBookClick',item)

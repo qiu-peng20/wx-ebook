@@ -6,7 +6,7 @@
 			:disabled = true
 			@click = "onSearchBarClick"
 			></SearchBar>
-			<HomeCard 
+			<HomeCard
 			:data="homeCard"
 			@onBookClick="onBookClick"></HomeCard>
 			<BannerBar></BannerBar>
@@ -73,8 +73,8 @@
 	import HomeCard from '../../components/home/HomeCard.vue'
 	import {
 		getSetting ,
-		getUserInfo , 
-		setStorageSync , 
+		getUserInfo ,
+		setStorageSync ,
 		getStorageSync ,
 		getUserOpenId,
 		showLoading,
@@ -122,7 +122,6 @@ export default {
 		},
 		onBookClick(book){
 			//图片点击事件
-
 			this.$router.push({
 				path:'/pages/detail/main',
 				query:{
@@ -132,7 +131,9 @@ export default {
 		},
 		onMoreClick(){
 			//展示更多选项
-
+      this.$router.push({
+        path:'/pages/categoryList/main'
+      })
 		},
 		onSearchBarClick(){
 			//跳转到搜索页
@@ -185,7 +186,7 @@ export default {
 				if(!openId || openId.length === 0){
 					getUserOpenId(openId=> onOpenIdComplace(openId,userInfo))
 				}else{
-					onOpenIdComplace(openId,userInfo)	
+					onOpenIdComplace(openId,userInfo)
 				}
 			},
 			()=>{
@@ -210,5 +211,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	
+
 </style>

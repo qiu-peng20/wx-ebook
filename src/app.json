@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/index/main",
-	"pages/detail/main"
-    
+  "pages/index/main",
+	"pages/detail/main",
+  "pages/categoryList/main",
+  "pages/shelf/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,8 +16,6 @@
 		"van-icon": "vant-weapp/dist/icon/index",
 		"van-dialog": "vant-weapp/dist/dialog/index",
 		"van-rate": "vant-weapp/dist/rate/index"
-		
-		
 	}
-  
+
 }
